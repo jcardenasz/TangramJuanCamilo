@@ -1,6 +1,6 @@
 # Talleres OO
 
-## 1. Tangram
+## Tangram
 
 ### Propósito
 
@@ -8,9 +8,16 @@ Repasar los conceptos fundamentales de la [programación estructurada](http://ob
 
 ### Tareas
 
-Emplee la plantilla adjunta (encontrada en la carpeta `Tangram`) para la realización de las siguientes tareas del juego:
+En los directorios de este repositorio se encuentra la plantilla del Juego del *tangram* en varios lenguajes:
+
+1. `Tangram`: Programación estructurada en _Processing_.
+2. `TangramOO`: POO en _Processing_.
+3. `TangramJava`: POO en _Java_ (empleando _Processing_ como librería).
+4. `docs`: POO en _JS_ empleando [p5js](https://p5js.org/).
+
+empléelas para la realización de las siguientes tareas del juego:
 
 1. Dibujo de las piezas.
 2. Selección y manipulación de las piezas (ratón y teclado).
 3. Verificación de resultados.
-4. Creación de niveles (opcional).
+4. Creación de niveles.
