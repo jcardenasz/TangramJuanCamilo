@@ -13,7 +13,8 @@ En los directorios de este repositorio se encuentra la plantilla del Juego del *
 1. `Tangram`: Programación estructurada en _Processing_.
 2. `TangramOO`: POO en _Processing_.
 3. `TangramJava`: POO en _Java_ (empleando _Processing_ como librería).
-4. `docs`: POO en _JS_ empleando [p5js](https://p5js.org/).
+4. `TangramJS`: POO en _JS_ empleando [p5js](https://p5js.org/).
+5. `docs`: `TangramJS` [symlinked](https://en.wikipedia.org/wiki/Symbolic_link) to go live [here](https://objetos.github.io/talleres/).
 
 empléelas para la realización de las siguientes tareas del juego:
 
