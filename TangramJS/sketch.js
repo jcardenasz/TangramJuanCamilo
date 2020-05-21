@@ -2,7 +2,7 @@ var shapes = [];
 var grid = true;
 
 function setup () {
-  let canvas = createCanvas(600, 338);
+  const canvas = createCanvas(600, 338);
   canvas.parent('template_js');
   for (let i = 0; i < 7; i++) {
     shapes[i] = new Rect();
