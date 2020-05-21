@@ -1,4 +1,10 @@
-class Shape {
+// (semi) standard reporting undef
+// see: https://standardjs.com/#i-use-a-library-that-pollutes-the-global-namespace-how-do-i-prevent-variable-is-not-defined-errors
+
+/* global color, random, createVector, width, height, TWO_PI,
+push, pop, fill, translate, rotate, scale */
+
+class Shape { // eslint-disable-line no-unused-vars
   constructor () {
     this.hue = color(random(0, 255), random(0, 255), random(0, 255));
     this.position = createVector(random(0, width), random(0, height));

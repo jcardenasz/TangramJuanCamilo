@@ -1,5 +1,13 @@
+// (semi) standard reporting undef
+// see: https://standardjs.com/#i-use-a-library-that-pollutes-the-global-namespace-how-do-i-prevent-variable-is-not-defined-errors
+
+/* global createCanvas, Rect, push, pop, stroke,
+strokeWeight, background, line, width, height */
+
 var shapes = [];
 var grid = true;
+
+/* eslint-disable no-unused-vars */
 
 function setup () {
   const canvas = createCanvas(600, 338);
@@ -18,6 +26,9 @@ function draw () {
     shapes[i].draw();
   }
 }
+
+// (semi) standard reporting unused
+/* eslint-enable no-unused-vars */
 
 function gridHint (scale) {
   push();
