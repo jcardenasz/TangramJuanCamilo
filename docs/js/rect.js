@@ -1,1 +1,0 @@
-../../TangramJS/rect.js
