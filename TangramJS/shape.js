@@ -1,13 +1,17 @@
 class Shape {
   constructor () {
     this.hue = color(random(0, 255), random(0, 255), random(0, 255));
-    this.posicion = createVector(random(0, width), random(0, height));
+    this.position = createVector(random(0, width), random(0, height));
+    this.rotation = random(0, TWO_PI);
+    this.scaling = random(0.5, 1.5);
   }
 
   draw () {
     push();
     fill(this.hue);
-    translate(this.posicion.x, this.posicion.y);
+    translate(this.position.x, this.position.y);
+    rotate(this.rotation);
+    scale(this.scaling, this.scaling);
     this.drawShape();
     pop();
   }
