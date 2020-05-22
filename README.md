@@ -12,7 +12,7 @@ En los directorios de este repositorio se encuentra la plantilla del Juego del *
 * `TangramOO`: POO en _Processing_.
 * `TangramJava`: POO en _Java_ (empleando _Processing_ como librería).
 * `TangramJS`: POO en _JS_ empleando [p5js](https://p5js.org/).
-* `docs`: `TangramJS` [symlinked](https://en.wikipedia.org/wiki/Symbolic_link) para verse en línea [acá](https://objetos.github.io/talleres/) de acuerdo a [gh-pages](https://pages.github.com/).
+* `docs`: `TangramJS` [symlinked](https://en.wikipedia.org/wiki/Symbolic_link) para verse en línea [acá](https://objetos.github.io/TangramRosetta/) de acuerdo a [gh-pages](https://pages.github.com/).
 
 empléelas de acuerdo al (o a los) lenguaje(s) con los que desee experimentar, para la realización de las siguientes tareas del juego:
 
