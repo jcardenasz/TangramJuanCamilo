@@ -5,20 +5,18 @@ layout: default
 
 ---
 
-# Talleres JS
+# TangramJS
 
-## 1. Tangram
-
-<div id="template_js">
-<!-- Ellipses sketch will go here! -->  
-</div>
+<div id="template_js"></div>
 
 <!-- Javascript Code -->
-<!-- Adjust sketch size to 600x338px  -->
+<!-- Check jekyll theme to adjust sketch size e.g., 600x338px -->
 
+<!-- JS minified online p5.js libs -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/addons/p5.sound.min.js"></script>
 
+<!-- Add your JS tangram sources here -->
 <script src="./js/sketch.js"></script>
 <script src="./js/shape.js"></script>
 <script src="./js/rect.js"></script>
