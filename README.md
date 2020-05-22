@@ -1,8 +1,8 @@
-# Taller Tangram POO
+# Tangram Rosetta
 
 ## Propósito
 
-Evidenciar los conceptos fundamentales de la programación orientada a objetos (POO) (estudiados [acá](http://objetos.github.io/objects) y [acá](http://objetos.github.io/polymorphism)) en la implementación del juego del [tangram](https://en.wikipedia.org/wiki/Tangram).
+Evidenciar los conceptos fundamentales de la programación orientada a objetos (POO) (estudiados [acá](http://objetos.github.io/objects) y [acá](http://objetos.github.io/polymorphism)), empleando varios lenguajes, para la implementación del juego del [tangram](https://en.wikipedia.org/wiki/Tangram).
 
 ## Tareas
 
