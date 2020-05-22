@@ -1,4 +1,4 @@
-# Tangram Rosetta
+# Taller Tangram POO
 
 ## Propósito
 
