@@ -20,3 +20,10 @@ empléelas de acuerdo al (o a los) lenguaje(s) con los que desee experimentar, p
 2. Selección y manipulación de las piezas (ratón y teclado).
 3. Verificación de resultados.
 4. Creación de niveles.
+
+## Entrega
+
+Condiciones:
+
+1. _Plazo máximo del último `commit`:_ 24h del Domingo 7/6/20.
+2. _Presentaciones (código + demo):_ Lunes 8/6/20. Tiempo: 5m presentación +  2m preguntas de los asistentes.
