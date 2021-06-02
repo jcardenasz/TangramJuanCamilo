@@ -2,6 +2,7 @@ abstract class Shape {
   float _rotation;
   float _scaling;
   PVector _position;
+  color _hue;
 
   // TODO: estilo
   // implemente el estilo del shape (i.e., stroke weight, color, etc)
@@ -10,17 +11,15 @@ abstract class Shape {
   // TODO: modifique o defina los constructores que necesite
 
   Shape() {
-    this(random(100, width-100), random(100, height-100), 0, 1);
-  }
-
-  Shape(float x, float y, float r, float s) {
-    _position = new PVector(x, y);
-    _rotation = r;
-    _scaling = s;
+    setHue(color(random(0, 255), random(0, 255), random(0, 255)));
+    setPosition(new PVector(random(0, width), random(0, height)));
+    setRotation(random(0, TWO_PI));
+    setScaling(random(0.5, 1.5));
   }
 
   void draw() {
     push();
+    fill(hue());
     translate(position().x, position().y);
     rotate(rotation());
     scale(scaling(), scaling());
@@ -57,5 +56,13 @@ abstract class Shape {
 
   void setPosition(PVector position) {
     _position = position;
+  }
+
+  color hue() {
+    return _hue;
+  }
+
+  void setHue(color hue) {
+    _hue = hue;
   }
 }
