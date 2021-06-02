@@ -5,9 +5,9 @@
 /* global Shape, rectMode, rect, CENTER */
 
 class Rect extends Shape { // eslint-disable-line no-unused-vars
-  constructor () {
+  constructor (edge = 100) {
     super();
-    this.edge = 100;
+    this.edge = edge;
   }
 
   drawShape () {

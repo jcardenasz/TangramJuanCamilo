@@ -1,7 +1,7 @@
 abstract class Shape {
-  float rot;
-  float scl;
-  PVector trans;
+  float _rotation;
+  float _scaling;
+  PVector _position;
 
   // TODO: estilo
   // implemente el estilo del shape (i.e., stroke weight, color, etc)
@@ -14,14 +14,14 @@ abstract class Shape {
   }
 
   Shape(float x, float y, float r, float s) {
-    trans = new PVector(x, y);
-    rot = r;
-    scl = s;
+    _position = new PVector(x, y);
+    _rotation = r;
+    _scaling = s;
   }
 
   void draw() {
     push();
-    translate(translation().x, translation().y);
+    translate(position().x, position().y);
     rotate(rotation());
     scale(scaling(), scaling());
     // TODO aplique el estilo aca
@@ -36,27 +36,26 @@ abstract class Shape {
   abstract void drawShape();
 
   float scaling() {
-    return scl;
+    return _scaling;
   }
 
-  void setScaling(float s) {
-    scl = s;
+  void setScaling(float scaling) {
+    _scaling = scaling;
   }
 
   float rotation() {
-    return rot;
+    return _rotation;
   }
 
-  void setRotation(float r) {
-    scl = r;
+  void setRotation(float rotation) {
+    _rotation = rotation;
   }
 
-  PVector translation() {
-    return trans;
+  PVector position() {
+    return _position;
   }
 
-  void setTranslation(float x, float y) {
-    trans.x = x;
-    trans.y = y;
+  void setPosition(PVector position) {
+    _position = position;
   }
 }

@@ -28,38 +28,38 @@ class Shape { // eslint-disable-line no-unused-vars
     throw new Error('You have to implement the method drawShape!');
   }
 
-  // getters and setter
+  // getters and setters
   // see: https://www.w3schools.com/js/js_object_accessors.asp
 
   get scaling () {
-    return this._scl;
+    return this._scaling;
   }
 
-  set scaling (s) {
-    this._scl = s;
+  set scaling (scaling) {
+    this._scaling = scaling;
   }
 
   get rotation () {
-    return this._rot;
+    return this._rotation;
   }
 
-  set rotation (r) {
-    this._rot = r;
+  set rotation (rotation) {
+    this._rotation = rotation;
   }
 
   get position () {
-    return this._trans;
+    return this._position;
   }
 
-  set position (t) {
-    this._trans = t;
+  set position (position) {
+    this._position = position;
   }
 
   get hue () {
     return this._hue;
   }
 
-  set hue (h) {
-    this._hue = h;
+  set hue (hue) {
+    this._hue = hue;
   }
 }

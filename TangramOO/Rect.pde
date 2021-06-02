@@ -1,8 +1,12 @@
 class Rect extends Shape {
-  float edge;
+  float _edge;
 
   Rect() {
-    setEdge(100);
+    this(100);
+  }
+
+  Rect(float edge) {
+    setEdge(edge);
   }
 
   @Override
@@ -12,10 +16,10 @@ class Rect extends Shape {
   }
 
   public float edge() {
-    return edge;
+    return _edge;
   }
 
-  public void setEdge(float e) {
-    edge = e;
+  public void setEdge(float edge) {
+    _edge = edge;
   }
 }
