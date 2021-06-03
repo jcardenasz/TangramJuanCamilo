@@ -1,7 +1,8 @@
 // Implementar:
-// 1. La manipulacion de las piezas con el mouse y el teclado
-// 2. La evaluacion de la solucion
-// 3. El modo de creacion de nuevos problemas
+// 1. La creación de las siete distintas piezas (por ahora son todas Rect) 
+// 2. La manipulacion de las piezas con el mouse y el teclado
+// 3. La evaluacion de la solucion
+// 4. El modo de creacion de nuevos problemas
 
 package poo4;
 
@@ -20,7 +21,6 @@ public class Tangram extends PApplet {
   public void setup() {
     textSize(20);
     _shapes = new Shape[7];
-    // TODO: agregue los shapes del juego
     for (int i = 0; i< _shapes.length; i++)
       _shapes[i] = new Rect(this);
   }

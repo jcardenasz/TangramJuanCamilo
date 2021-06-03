@@ -1,7 +1,8 @@
-// TODO Implemente
-// 1. La manipulacion de las piezas con el mouse y el teclado
-// 2. La evaluacion de la solucion
-// 3. El modo de creacion de nuevos problemas
+// Implementar:
+// 1. La creación de las siete distintas piezas (por ahora son todas Rect) 
+// 2. La manipulacion de las piezas con el mouse y el teclado
+// 3. La evaluacion de la solucion
+// 4. El modo de creacion de nuevos problemas
 
 Shape[] shapes;
 boolean drawGrid = true;
@@ -10,7 +11,6 @@ void setup() {
   size(800, 800);
   textSize(20);
   shapes = new Shape[7];
-  // TODO: agregue los shapes del juego
   for (int i=0; i<shapes.length; i++)
     shapes[i] = new Rect();
 }

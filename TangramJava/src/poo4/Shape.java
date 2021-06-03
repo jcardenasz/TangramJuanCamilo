@@ -39,7 +39,6 @@ abstract class Shape {
     _parent.translate(position().x, position().y);
     _parent.rotate(rotation());
     _parent.scale(scaling(), scaling());
-    // TODO aplique el estilo aca
     drawShape();
     _parent.pop();
   }

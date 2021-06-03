@@ -1,7 +1,8 @@
-// TODO Implemente
-// 1. La manipulacion de las piezas con el mouse y el teclado
-// 2. La evaluacion de la solucion
-// 3. El modo de creacion de nuevos problemas
+// Implementar:
+// 1. La creación de las siete distintas piezas (por ahora son todas Rect) 
+// 2. La manipulacion de las piezas con el mouse y el teclado
+// 3. La evaluacion de la solucion
+// 4. El modo de creacion de nuevos problemas
 
 // (semi) standard reporting undef
 // see: https://standardjs.com/#i-use-a-library-that-pollutes-the-global-namespace-how-do-i-prevent-variable-is-not-defined-errors
