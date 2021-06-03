@@ -4,10 +4,10 @@ import processing.core.PApplet;
 import processing.core.PVector;
 
 abstract class Shape {
-  protected float _rot;
-  protected float _scl;
+  protected float _rotation;
+  protected float _scaling;
   protected PApplet _parent;
-  protected PVector _trans;
+  protected PVector _position;
 
   // TODO: estilo
   // implemente el estilo del shape (i.e., stroke weight, color, etc)
@@ -21,14 +21,14 @@ abstract class Shape {
 
   public Shape(PApplet parent, float x, float y, float r, float s) {
     _parent = parent;
-    _trans = new PVector(x, y);
-    _rot = r;
-    _scl = s;
+    _position = new PVector(x, y);
+    _rotation = r;
+    _scaling = s;
   }
 
   public void draw() {
     _parent.push();
-    _parent.translate(translation().x, translation().y);
+    _parent.translate(position().x, position().y);
     _parent.rotate(rotation());
     _parent.scale(scaling(), scaling());
     // TODO aplique el estilo aca
@@ -43,27 +43,27 @@ abstract class Shape {
   protected abstract void drawShape();
 
   public float scaling() {
-    return _scl;
+    return _scaling;
   }
 
-  public void setScaling(float s) {
-    _scl = s;
+  public void setScaling(float scaling) {
+    _scaling = scaling;
   }
 
   public float rotation() {
-    return _rot;
+    return _rotation;
   }
 
-  public void setRotation(float r) {
-    _scl = r;
+  public void setRotation(float rotation) {
+    _rotation = rotation;
   }
 
-  public PVector translation() {
-    return _trans;
+  public PVector position() {
+    return _position;
   }
 
-  public void setTranslation(float x, float y) {
-    _trans.x = x;
-    _trans.y = y;
+  public void setPosition(float x, float y) {
+    _position.x = x;
+    _position.y = y;
   }
 }

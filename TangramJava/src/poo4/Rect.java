@@ -6,8 +6,12 @@ class Rect extends Shape {
   protected float _edge;
 
   public Rect(PApplet parent) {
+    this(parent, 100);
+  }
+
+  public Rect(PApplet parent, float edge) {
     super(parent);
-    setEdge(100);
+    setEdge(edge);
   }
 
   @Override
@@ -20,7 +24,7 @@ class Rect extends Shape {
     return _edge;
   }
 
-  public void setEdge(float e) {
-    _edge = e;
+  public void setEdge(float edge) {
+    _edge = edge;
   }
 }
