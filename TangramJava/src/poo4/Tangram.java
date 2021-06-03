@@ -1,3 +1,8 @@
+// Implementar:
+// 1. La manipulacion de las piezas con el mouse y el teclado
+// 2. La evaluacion de la solucion
+// 3. El modo de creacion de nuevos problemas
+
 package poo4;
 
 import processing.core.PApplet;
@@ -5,11 +10,6 @@ import processing.core.PApplet;
 public class Tangram extends PApplet {
   Shape[] _shapes;
   boolean _drawGrid = true;
-
-  // TODO Implemente
-  // 1. La manipulacion de las piezas con el mouse y el teclado
-  // 2. La evaluacion de la solucion
-  // 3. El modo de creacion de nuevos problemas
 
   @Override
   public void settings() {

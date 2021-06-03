@@ -1,3 +1,5 @@
+// Implementar el resto de piezas
+
 class Rect extends Shape {
   float _edge;
 

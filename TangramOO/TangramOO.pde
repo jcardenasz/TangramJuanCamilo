@@ -1,10 +1,10 @@
-Shape[] shapes;
-boolean drawGrid = true;
-
 // TODO Implemente
 // 1. La manipulacion de las piezas con el mouse y el teclado
 // 2. La evaluacion de la solucion
 // 3. El modo de creacion de nuevos problemas
+
+Shape[] shapes;
+boolean drawGrid = true;
 
 void setup() {
   size(800, 800);

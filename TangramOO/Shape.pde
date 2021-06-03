@@ -1,20 +1,28 @@
+// Implementar:
+// 1. El estilo del shape (i.e., stroke weight, color, etc)
+// como se hace con los demás atributos de la clase.
+// 2. La seleccion de la pieza mediante uno de los siguientes prototipos:
+// abstract boolean grabsInput(float x, float y);
+// boolean grabsInput(float x, float y) {}
+
 abstract class Shape {
   float _rotation;
   float _scaling;
   PVector _position;
   color _hue;
 
-  // TODO: estilo
-  // implemente el estilo del shape (i.e., stroke weight, color, etc)
-  // como se hace con los demás atributos de la clase
-
-  // TODO: modifique o defina los constructores que necesite
-
   Shape() {
-    setHue(color(random(0, 255), random(0, 255), random(0, 255)));
-    setPosition(new PVector(random(0, width), random(0, height)));
-    setRotation(random(0, TWO_PI));
-    setScaling(random(0.5, 1.5));
+    this(new PVector(random(0, width), random(0, height)),
+         random(0, TWO_PI),
+         random(0.5, 1.5),
+         color(random(0, 255), random(0, 255), random(0, 255)));
+  }
+
+  Shape(PVector position, float rotation, float scaling, color hue) {
+    setPosition(position);
+    setRotation(rotation);
+    setScaling(scaling);
+    setHue(hue);
   }
 
   void draw() {
@@ -27,10 +35,6 @@ abstract class Shape {
     drawShape();
     pop();
   }
-
-  // TODO: para la seleccion de la pieza escoja uno de los siguientes prototipos
-  // public abstract boolean grabsInput(float x, float y);
-  // public boolean grabsInput(float x, float y) {}
 
   abstract void drawShape();
 

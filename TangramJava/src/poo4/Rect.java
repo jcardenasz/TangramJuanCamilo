@@ -1,3 +1,5 @@
+// Implementar el resto de piezas
+
 package poo4;
 
 import processing.core.PApplet;

@@ -1,3 +1,8 @@
+// Implementar:
+// 1. El estilo del shape (i.e., stroke weight, color, etc)
+// como se hace con los demás atributos de la clase.
+// 2. La seleccion de la pieza mediante la funcion grabsInput(x, y)
+
 // (semi) standard reporting undef
 // see: https://standardjs.com/#i-use-a-library-that-pollutes-the-global-namespace-how-do-i-prevent-variable-is-not-defined-errors
 
@@ -5,11 +10,14 @@
 push, pop, fill, translate, rotate, scale */
 
 class Shape { // eslint-disable-line no-unused-vars
-  constructor () {
-    this.hue = color(random(0, 255), random(0, 255), random(0, 255));
-    this.position = createVector(random(0, width), random(0, height));
-    this.rotation = random(0, TWO_PI);
-    this.scaling = random(0.5, 1.5);
+  constructor (position = createVector(random(0, width), random(0, height)),
+               rotation = random(0, TWO_PI),
+               scaling = random(0.5, 1.5),
+               hue = color(random(0, 255), random(0, 255), random(0, 255))) {
+    this.position = position;
+    this.rotation = rotation;
+    this.scaling = scaling;
+    this.hue = hue;
   }
 
   draw () {
@@ -26,6 +34,10 @@ class Shape { // eslint-disable-line no-unused-vars
   // https://medium.com/@yuribett/javascript-abstract-method-with-es6-5dbea4b00027
   drawShape () {
     throw new Error('You have to implement the method drawShape!');
+  }
+
+  grabsInput(x, y) {
+    throw new Error('You have to implement the method grabsInput!');
   }
 
   // getters and setters
