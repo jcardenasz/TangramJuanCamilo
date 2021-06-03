@@ -1,1 +1,1 @@
-../docs/js/sketch.js
+../docs/js/tangram.js
