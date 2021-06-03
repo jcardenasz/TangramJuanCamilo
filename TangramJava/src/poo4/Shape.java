@@ -8,6 +8,7 @@ abstract class Shape {
   protected float _scaling;
   protected PApplet _parent;
   protected PVector _position;
+  int _hue;
 
   // TODO: estilo
   // implemente el estilo del shape (i.e., stroke weight, color, etc)
@@ -16,18 +17,16 @@ abstract class Shape {
   // TODO: modifique o defina los constructores que necesite
 
   public Shape(PApplet parent) {
-    this(parent, parent.random(100, parent.width-100), parent.random(100, parent.height-100), 0, 1);
-  }
-
-  public Shape(PApplet parent, float x, float y, float r, float s) {
     _parent = parent;
-    _position = new PVector(x, y);
-    _rotation = r;
-    _scaling = s;
+    setHue(parent.color(parent.random(0, 255), parent.random(0, 255), parent.random(0, 255)));
+    setPosition(new PVector(parent.random(0, parent.width), parent.random(0, parent.height)));
+    setRotation(parent.random(0, PApplet.TWO_PI));
+    setScaling(parent.random(0.5f, 1.5f));
   }
 
   public void draw() {
     _parent.push();
+    _parent.fill(hue());
     _parent.translate(position().x, position().y);
     _parent.rotate(rotation());
     _parent.scale(scaling(), scaling());
@@ -62,8 +61,15 @@ abstract class Shape {
     return _position;
   }
 
-  public void setPosition(float x, float y) {
-    _position.x = x;
-    _position.y = y;
+  public void setPosition(PVector position) {
+    _position = position;
+  }
+
+  public int hue() {
+    return _hue;
+  }
+
+  public void setHue(int hue) {
+    _hue = hue;
   }
 }
