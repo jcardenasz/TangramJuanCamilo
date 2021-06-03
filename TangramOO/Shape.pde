@@ -62,6 +62,10 @@ abstract class Shape {
     _position = position;
   }
 
+  void setPosition(float x, float y) {
+    _position.set(x, y);
+  }
+
   color hue() {
     return _hue;
   }
