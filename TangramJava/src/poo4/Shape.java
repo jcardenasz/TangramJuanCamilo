@@ -2,8 +2,8 @@
 // 1. El estilo del shape (i.e., stroke weight, color, etc)
 // como se hace con los demás atributos de la clase.
 // 2. La seleccion de la pieza mediante uno de los siguientes prototipos:
-// public abstract boolean grabsInput(float x, float y);
-// public boolean grabsInput(float x, float y) {}
+// public abstract boolean contains(float x, float y);
+// public boolean contains(float x, float y) {}
 
 package poo4;
 
@@ -67,10 +67,6 @@ abstract class Shape {
 
   public void setPosition(PVector position) {
     _position = position;
-  }
-
-  public void setPosition(float x, float y) {
-    _position.set(x, y);
   }
 
   public int hue() {

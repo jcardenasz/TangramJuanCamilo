@@ -36,8 +36,8 @@ class Shape { // eslint-disable-line no-unused-vars
     throw new Error('You have to implement the method drawShape!');
   }
 
-  grabsInput(x, y) {
-    throw new Error('You have to implement the method grabsInput!');
+  contains(x, y) {
+    throw new Error('You have to implement the method contains!');
   }
 
   // getters and setters
@@ -65,15 +65,6 @@ class Shape { // eslint-disable-line no-unused-vars
 
   set position (position) {
     this._position = position;
-  }
-
-  setPosition () {
-    if (arguments.length === 1 && arguments[0] instanceof p5.Vector) {
-      this._position = arguments[0];
-    }
-    else if (arguments.length === 2 && typeof arguments[0] === 'number' && typeof arguments[1] === 'number') {
-      this._position.set(arguments[0], arguments[1]);
-    }
   }
 
   get hue () {
