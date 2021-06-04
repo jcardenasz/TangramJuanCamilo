@@ -8,7 +8,6 @@ Evidenciar los conceptos fundamentales de la programación orientada a objetos (
 
 En los directorios de este repositorio se encuentra la plantilla del Juego del *tangram* en varios lenguajes:
 
-* `Tangram`: Programación estructurada en _Processing_.
 * `TangramOO`: POO en _Processing_.
 * `TangramJava`: POO en _Java_ (empleando _Processing_ como librería).
 * `docs`: POO en _JS_ empleando [p5js](https://p5js.org/) para verse [online](https://en.wikipedia.org/wiki/Online_and_offline) [acá](https://objetos.github.io/TangramRosetta/) de acuerdo a [gh-pages](https://pages.github.com/).
