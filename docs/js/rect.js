@@ -1,5 +1,3 @@
-// Implementar el resto de piezas
-
 // (semi) standard reporting undef
 // see: https://standardjs.com/#i-use-a-library-that-pollutes-the-global-namespace-how-do-i-prevent-variable-is-not-defined-errors
 

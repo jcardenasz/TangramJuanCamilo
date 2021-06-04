@@ -1,10 +1,10 @@
 // Implementar:
-// 1. El estilo del shape (i.e., stroke weight, color, etc)
-// como se hace con los demás atributos de la clase.
-// 2. La seleccion de la pieza mediante el ratón, empleando
-// uno de los siguientes prototipos:
-// abstract boolean contains(float x, float y);
-// boolean contains(float x, float y) {}
+// 1. El estilo del shape (e.g., stroke, stroke weight).
+// 2. El método contains(int x, int y) que diga si un punto de coordenadas
+// (x,y) se encuentra o no al interior del shape. Observe que esta
+// función puede servir para la selección de la pieza con un puntero.
+// 3. El resto de shapes que se requieran para el Tangram, como se
+// hace con la clase Rect (ver Rect.pde).
 
 abstract class Shape {
   float _rotation;
@@ -37,6 +37,15 @@ abstract class Shape {
   }
 
   abstract void contour();
+
+  /*
+  // Escoja uno solo de los siguientes dos prototipos para la funcion contains:
+  boolean contains(int x, int y) {
+    return true;
+  }
+  
+  abstract boolean contains(int x, int y);
+  // */
 
   float scaling() {
     return _scaling;

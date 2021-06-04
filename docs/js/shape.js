@@ -1,8 +1,10 @@
 // Implementar:
-// 1. El estilo del shape (i.e., stroke weight, color, etc)
-// como se hace con los demás atributos de la clase.
-// 2. La seleccion de la pieza mediante el ratón empleando la
-// funcion contains(x, y).
+// 1. El estilo del shape (e.g., stroke, stroke weight).
+// 2. La funcion contains(x, y) que diga si un punto de coordenadas
+// (x,y) se encuentra o no al interior del shape. Observe que esta
+// función puede servir para la selección de la pieza con un puntero.
+// 3. El resto de shapes que se requieran para el Tangram, como se
+// hace con la clase Rect (ver rect.js).
 
 // (semi) standard reporting undef
 // see: https://standardjs.com/#i-use-a-library-that-pollutes-the-global-namespace-how-do-i-prevent-variable-is-not-defined-errors
