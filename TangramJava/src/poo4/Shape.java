@@ -1,7 +1,8 @@
 // Implementar:
 // 1. El estilo del shape (i.e., stroke weight, color, etc)
 // como se hace con los demás atributos de la clase.
-// 2. La seleccion de la pieza mediante uno de los siguientes prototipos:
+// 2. La seleccion de la pieza mediante el ratón, empleando
+// uno de los siguientes prototipos:
 // public abstract boolean contains(float x, float y);
 // public boolean contains(float x, float y) {}
 
@@ -39,11 +40,11 @@ abstract class Shape {
     _parent.translate(position().x, position().y);
     _parent.rotate(rotation());
     _parent.scale(scaling(), scaling());
-    drawShape();
+    contour();
     _parent.pop();
   }
 
-  protected abstract void drawShape();
+  protected abstract void contour();
 
   public float scaling() {
     return _scaling;

@@ -1,7 +1,8 @@
 // Implementar:
 // 1. El estilo del shape (i.e., stroke weight, color, etc)
 // como se hace con los demás atributos de la clase.
-// 2. La seleccion de la pieza mediante la funcion grabsInput(x, y)
+// 2. La seleccion de la pieza mediante el ratón empleando la
+// funcion contains(x, y).
 
 // (semi) standard reporting undef
 // see: https://standardjs.com/#i-use-a-library-that-pollutes-the-global-namespace-how-do-i-prevent-variable-is-not-defined-errors
@@ -26,16 +27,17 @@ class Shape { // eslint-disable-line no-unused-vars
     translate(this.position.x, this.position.y);
     rotate(this.rotation);
     scale(this.scaling, this.scaling);
-    this.drawShape();
+    this.contour();
     pop();
   }
 
   // JS doesn't have abstract methods, see:
   // https://medium.com/@yuribett/javascript-abstract-method-with-es6-5dbea4b00027
-  drawShape () {
-    throw new Error('You have to implement the method drawShape!');
+  contour() {
+    throw new Error('You have to implement the method contour!');
   }
 
+  // should return a boolean value
   contains(x, y) {
     throw new Error('You have to implement the method contains!');
   }

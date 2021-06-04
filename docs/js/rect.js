@@ -11,7 +11,7 @@ class Rect extends Shape { // eslint-disable-line no-unused-vars
     this.edge = edge;
   }
 
-  drawShape () {
+  contour() {
     rectMode(CENTER);
     rect(0, 0, this.edge, this.edge);
   }
