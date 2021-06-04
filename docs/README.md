@@ -17,6 +17,6 @@ layout: default
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/addons/p5.sound.min.js"></script>
 
 <!-- Add your js tangram sources here -->
-<script src="./js/sketch.js"></script>
+<script src="./js/tangram.js"></script>
 <script src="./js/shape.js"></script>
 <script src="./js/rect.js"></script>
