@@ -1,6 +1,6 @@
 // Implementar:
 // 1. La creación de las siete distintas piezas (por ahora son todas Rect) 
-// 2. La manipulacion de las piezas con el mouse y el teclado
+// 2. La interacción: selección y manipulación de las piezas (ratón, teclas, touch...)
 // 3. La evaluacion de la solucion
 // 4. El modo de creacion de nuevos problemas
 

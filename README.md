@@ -16,7 +16,7 @@ En los directorios de este repositorio se encuentra la plantilla del Juego del *
 empléelas de acuerdo al (o a los) lenguaje(s) con los que desee experimentar, para la realización de las siguientes tareas del juego:
 
 1. Dibujo de las piezas.
-2. Selección y manipulación de las piezas (ratón y teclado).
+2. Interacción con las piezas (ratón y teclado): selección y manipulación.
 3. Verificación de resultados.
 4. Creación de niveles.
 
