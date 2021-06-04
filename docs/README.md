@@ -13,8 +13,8 @@ layout: default
 <!-- Check jekyll theme to adjust sketch size e.g., 600x338px -->
 
 <!-- JS minified online p5.js libs -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/addons/p5.sound.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/p5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/addons/p5.sound.min.js"></script>
 
 <!-- Add your js tangram sources here -->
 <script src="./js/tangram.js"></script>
