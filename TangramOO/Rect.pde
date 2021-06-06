@@ -12,7 +12,7 @@ class Rect extends Shape {
   }
 
   @Override
-  void contour() {
+  void geom() {
     rectMode(CENTER);
     rect(0, 0, edge(), edge());
   }

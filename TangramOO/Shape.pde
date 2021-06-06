@@ -32,11 +32,11 @@ abstract class Shape {
     translate(position().x, position().y);
     rotate(rotation());
     scale(scaling(), scaling());
-    contour();
+    geom();
     pop();
   }
 
-  abstract void contour();
+  abstract void geom();
 
   /*
   // Escoja uno solo de los siguientes dos prototipos para la funcion contains:

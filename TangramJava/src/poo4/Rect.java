@@ -17,7 +17,7 @@ class Rect extends Shape {
   }
 
   @Override
-  protected void contour() {
+  protected void geom() {
     _parent.rectMode(PApplet.CENTER);
     _parent.rect(0, 0, edge(), edge());
   }

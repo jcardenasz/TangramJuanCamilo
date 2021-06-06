@@ -9,7 +9,7 @@ class Rect extends Shape { // eslint-disable-line no-unused-vars
     this.edge = edge;
   }
 
-  contour() {
+  geom() {
     rectMode(CENTER);
     rect(0, 0, this.edge, this.edge);
   }

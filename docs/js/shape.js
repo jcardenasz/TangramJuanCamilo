@@ -29,14 +29,14 @@ class Shape { // eslint-disable-line no-unused-vars
     translate(this.position.x, this.position.y);
     rotate(this.rotation);
     scale(this.scaling, this.scaling);
-    this.contour();
+    this.geom();
     pop();
   }
 
   // JS doesn't have abstract methods, see:
   // https://medium.com/@yuribett/javascript-abstract-method-with-es6-5dbea4b00027
-  contour() {
-    throw new Error('You have to implement the method contour!');
+  geom() {
+    throw new Error('You have to implement the method geom!');
   }
 
   // should return a boolean value
