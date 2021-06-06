@@ -19,7 +19,6 @@ public class Tangram extends PApplet {
 
   @Override
   public void setup() {
-    textSize(20);
     _shapes = new Shape[7];
     for (int i = 0; i< _shapes.length; i++)
       _shapes[i] = new Rect(this);

@@ -9,7 +9,6 @@ boolean drawGrid = true;
 
 void setup() {
   size(800, 800);
-  textSize(20);
   shapes = new Shape[7];
   for (int i=0; i<shapes.length; i++)
     shapes[i] = new Rect();
