@@ -6,13 +6,7 @@
 // 3. El resto de shapes que se requieran para el Tangram, como se
 // hace con la clase Rect (ver rect.js).
 
-// (semi) standard reporting undef
-// see: https://standardjs.com/#i-use-a-library-that-pollutes-the-global-namespace-how-do-i-prevent-variable-is-not-defined-errors
-
-/* global color, random, createVector, width, height, TWO_PI,
-push, pop, fill, translate, rotate, scale */
-
-class Shape { // eslint-disable-line no-unused-vars
+class Shape {
   constructor (position = createVector(random(0, width), random(0, height)),
                rotation = random(0, TWO_PI),
                scaling = random(0.5, 1.5),
