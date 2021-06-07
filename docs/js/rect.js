@@ -1,9 +1,4 @@
-// (semi) standard reporting undef
-// see: https://standardjs.com/#i-use-a-library-that-pollutes-the-global-namespace-how-do-i-prevent-variable-is-not-defined-errors
-
-/* global Shape, rectMode, rect, CENTER */
-
-class Rect extends Shape { // eslint-disable-line no-unused-vars
+class Rect extends Shape {
   constructor (edge = 100) {
     super();
     this.edge = edge;

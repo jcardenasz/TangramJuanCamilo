@@ -20,3 +20,4 @@ layout: default
 <script src="./js/tangram.js"></script>
 <script src="./js/shape.js"></script>
 <script src="./js/rect.js"></script>
+<script src="./js/term.js"></script>

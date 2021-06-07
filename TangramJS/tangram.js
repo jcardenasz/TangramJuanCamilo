@@ -10,7 +10,9 @@ var grid = true;
 function setup() {
   const canvas = createCanvas(600, 338);
   for (let i = 0; i < 7; i++) {
-    shapes[i] = new Rect();
+    //shapes[i] = new Rect();
+    //shapes[i] = new Glyph('a');
+    shapes[i] = new Term();
   }
 }
 
@@ -44,7 +46,8 @@ function gridHint(scale) {
 // (x,y) se encuentra o no en su interior. Observe que esta
 // funcion puede servir para la seleccion de la pieza con un puntero.
 // 3. El resto de shapes que se requieran para el Tangram, como se
-// hace con la clase Rect (ver la clase Rect abajo).
+// hace con la clase Rect (ver la clase Rect abajo) y la clase Term
+// (ver la clase Term abajo).
 
 class Shape {
   constructor(
@@ -133,5 +136,32 @@ class Rect extends Shape {
 
   set edge(value) {
     this._edge = value;
+  }
+}
+
+class Term extends Shape {
+  constructor (term = 3, scaling = 8) {
+    super();
+    this.term = term;
+    this.scaling = scaling;
+  }
+
+  geom() {
+    noStroke();
+    text(this.term, 0, 0);
+  }
+
+  get term () {
+    return this._term;
+  }
+
+  set term (term) {
+    if (typeof term === 'string') {
+      this._term = term;
+    }
+    else if (typeof term === 'number') {
+      // see ideas here: https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
+      this._term = Math.random().toString(36).slice(-term);
+    }
   }
 }
