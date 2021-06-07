@@ -10,9 +10,7 @@ var grid = true;
 function setup() {
   const canvas = createCanvas(600, 338);
   for (let i = 0; i < 7; i++) {
-    //shapes[i] = new Rect();
-    //shapes[i] = new Glyph('a');
-    shapes[i] = new Term();
+    shapes[i] = i < 4 ? new  Rect() : new Term();
   }
 }
 

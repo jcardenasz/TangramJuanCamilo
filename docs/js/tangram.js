@@ -11,7 +11,7 @@ function setup () {
   const canvas = createCanvas(600, 338);
   canvas.parent('template_js');
   for (let i = 0; i < 7; i++) {
-    shapes[i] = new Rect();
+    shapes[i] = i < 4 ? new  Rect() : new Term();
   }
 }
 
