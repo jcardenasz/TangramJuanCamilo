@@ -1,5 +1,3 @@
-// Implementar el resto de piezas
-
 class Rect extends Shape {
   float _edge;
 
@@ -12,7 +10,7 @@ class Rect extends Shape {
   }
 
   @Override
-  void geom() {
+  void aspect() {
     rectMode(CENTER);
     rect(0, 0, edge(), edge());
   }

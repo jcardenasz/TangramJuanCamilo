@@ -1,5 +1,3 @@
-// Implementar el resto de piezas
-
 package poo4;
 
 import processing.core.PApplet;
@@ -17,7 +15,7 @@ class Rect extends Shape {
   }
 
   @Override
-  protected void geom() {
+  protected void aspect() {
     _parent.rectMode(PApplet.CENTER);
     _parent.rect(0, 0, edge(), edge());
   }

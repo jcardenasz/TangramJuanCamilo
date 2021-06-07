@@ -40,11 +40,11 @@ abstract class Shape {
     _parent.translate(position().x, position().y);
     _parent.rotate(rotation());
     _parent.scale(scaling(), scaling());
-    geom();
+    aspect();
     _parent.pop();
   }
 
-  protected abstract void geom();
+  protected abstract void aspect();
 
   /*
   // Escoja uno solo de los siguientes dos prototipos para la funcion contains:
