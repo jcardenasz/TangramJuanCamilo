@@ -23,14 +23,14 @@ class Shape {
     translate(this.position.x, this.position.y);
     rotate(this.rotation);
     scale(this.scaling, this.scaling);
-    this.geom();
+    this.aspect();
     pop();
   }
 
   // JS doesn't have abstract methods, see:
   // https://medium.com/@yuribett/javascript-abstract-method-with-es6-5dbea4b00027
-  geom() {
-    throw new Error('You have to implement the method geom!');
+  aspect() {
+    throw new Error('You have to implement the method aspect!');
   }
 
   // should return a boolean value

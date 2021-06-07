@@ -4,7 +4,7 @@ class Rect extends Shape {
     this.edge = edge;
   }
 
-  geom() {
+  aspect() {
     rectMode(CENTER);
     rect(0, 0, this.edge, this.edge);
   }

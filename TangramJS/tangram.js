@@ -66,13 +66,13 @@ class Shape {
     translate(this.position.x, this.position.y);
     rotate(this.rotation);
     scale(this.scaling, this.scaling);
-    this.geom();
+    this.aspect();
     pop();
   }
 
   // JS doesn't have abstract methods, see:
   // https://medium.com/@yuribett/javascript-abstract-method-with-es6-5dbea4b00027
-  geom() {
+  aspect() {
     throw new Error("You have to implement the method geom!");
   }
 
@@ -123,7 +123,7 @@ class Rect extends Shape {
     this.edge = edge;
   }
 
-  geom() {
+  aspect() {
     rectMode(CENTER);
     rect(0, 0, this.edge, this.edge);
   }
@@ -144,7 +144,7 @@ class Term extends Shape {
     this.scaling = scaling;
   }
 
-  geom() {
+  aspect() {
     noStroke();
     text(this.term, 0, 0);
   }
@@ -154,12 +154,7 @@ class Term extends Shape {
   }
 
   set term (term) {
-    if (typeof term === 'string') {
-      this._term = term;
-    }
-    else if (typeof term === 'number') {
-      // see ideas here: https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
-      this._term = Math.random().toString(36).slice(-term);
-    }
+    // see ideas here: https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
+    this._term = typeof term === 'string' ? term : typeof term === 'number' ? Math.random().toString(36).slice(-term) : '👽';
   }
 }
