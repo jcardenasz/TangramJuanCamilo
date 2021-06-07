@@ -138,23 +138,23 @@ class Rect extends Shape {
 }
 
 class Term extends Shape {
-  constructor (term = 3, scaling = 8) {
+  constructor (elements = 3, scaling = 8) {
     super();
-    this.term = term;
+    this.elements = elements;
     this.scaling = scaling;
   }
 
   aspect() {
     noStroke();
-    text(this.term, 0, 0);
+    text(this.elements, 0, 0);
   }
 
-  get term () {
+  get elements () {
     return this._term;
   }
 
-  set term (term) {
+  set elements (elements) {
     // see: https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
-    this._term = typeof term === 'string' ? term : typeof term === 'number' ? Math.random().toString(36).slice(-term) : '👽';
+    this._term = typeof elements === 'string' ? elements : typeof elements === 'number' ? Math.random().toString(36).slice(-elements) : '👽';
   }
 }

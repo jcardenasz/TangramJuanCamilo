@@ -3,43 +3,43 @@ package poo4;
 import processing.core.PApplet;
 
 class Term extends Shape {
-  protected String _term;
+  protected String _elements;
 
   public Term(PApplet parent) {
     this(parent, 3, 8);
   }
 
-  public Term(PApplet parent, String term, float scaling) {
+  public Term(PApplet parent, String elements, float scaling) {
     super(parent);
-    setTerm(term);
+    setElements(elements);
     setScaling(scaling);
   }
 
-  public Term(PApplet parent, int term, float scaling) {
+  public Term(PApplet parent, int elements, float scaling) {
     super(parent);
-    setTerm(term);
+    setElements(elements);
     setScaling(scaling);
   }
 
   @Override
   protected void aspect() {
     _parent.noStroke();
-    _parent.text(_term, 0, 0);
+    _parent.text(_elements, 0, 0);
   }
 
-  public String term() {
-    return _term;
+  public String elements() {
+    return _elements;
   }
 
-  public void setTerm(String term) {
-    _term = term;
+  public void setElements(String elements) {
+    _elements = elements;
   }
 
-  public void setTerm(int term) {
-    _term = new String();
+  public void setElements(int elements) {
+    _elements = new String();
     // see: https://discourse.processing.org/t/get-random-letters-and-put-into-a-string/28585/10
-    for (int i = 0; i < term; i++) {
-      _term += (char)((int)_parent.random(65, 65+24));
+    for (int i = 0; i < elements; i++) {
+      _elements += (char)((int)_parent.random(65, 65+24));
     }
   }
 }
