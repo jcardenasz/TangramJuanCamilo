@@ -11,7 +11,7 @@ void setup() {
   size(800, 800);
   shapes = new Shape[7];
   for (int i=0; i<shapes.length; i++)
-    shapes[i] = new Rect();
+    shapes[i] = i < 4 ? new  Rect() : new Term();
 }
 
 void drawGrid(float scale) {

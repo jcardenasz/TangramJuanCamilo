@@ -9,8 +9,8 @@ package poo4;
 import processing.core.PApplet;
 
 public class Tangram extends PApplet {
-  Shape[] _shapes;
-  boolean _drawGrid = true;
+  Shape[] shapes;
+  boolean drawGrid = true;
 
   @Override
   public void settings() {
@@ -19,9 +19,9 @@ public class Tangram extends PApplet {
 
   @Override
   public void setup() {
-    _shapes = new Shape[7];
-    for (int i = 0; i< _shapes.length; i++)
-      _shapes[i] = new Rect(this);
+    shapes = new Shape[7];
+    for (int i = 0; i< shapes.length; i++)
+      shapes[i] = i < 4 ? new  Rect(this) : new Term(this);
   }
 
   void drawGrid(float scale) {
@@ -42,16 +42,16 @@ public class Tangram extends PApplet {
   @Override
   public void draw() {
     background(255, 255, 255);
-    if (_drawGrid)
+    if (drawGrid)
       drawGrid(10);
-    for (Shape shape : _shapes)
+    for (Shape shape : shapes)
       shape.draw();
   }
 
   @Override
   public void keyPressed() {
     if (key == 'g' || key == 'G')
-      _drawGrid = !_drawGrid;
+      drawGrid = !drawGrid;
   }
 
   public static void main(String[] args) {
