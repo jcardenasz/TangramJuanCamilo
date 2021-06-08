@@ -44,8 +44,7 @@ function gridHint(scale) {
 // (x,y) se encuentra o no en su interior. Observe que esta
 // funcion puede servir para la seleccion de la pieza con un puntero.
 // 3. El resto de shapes que se requieran para el Tangram, como se
-// hace con la clase Rect (ver la clase Rect abajo) y la clase Term
-// (ver la clase Term abajo).
+// hace con la clase Rect (ver la clase Rect abajo).
 
 class Shape {
   constructor(

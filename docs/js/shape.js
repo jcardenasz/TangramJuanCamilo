@@ -4,7 +4,7 @@
 // (x,y) se encuentra o no al interior del shape. Observe que esta
 // función puede servir para la selección de la pieza con un puntero.
 // 3. El resto de shapes que se requieran para el Tangram, como se
-// hace con la clase Rect (ver rect.js) y la clase Term (ver term.js).
+// hace con la clase Rect (ver rect.js).
 
 class Shape {
   constructor (position = createVector(random(0, width), random(0, height)),
