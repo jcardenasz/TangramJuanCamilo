@@ -72,7 +72,7 @@ class Shape {
   // JS doesn't have abstract methods, see:
   // https://medium.com/@yuribett/javascript-abstract-method-with-es6-5dbea4b00027
   aspect() {
-    throw new Error("You have to implement the method geom!");
+    throw new Error("You have to implement the method aspect!");
   }
 
   // should return a boolean value
