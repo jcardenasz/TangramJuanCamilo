@@ -22,5 +22,5 @@ empléelas de acuerdo al (o a los) lenguaje(s) con los que desee experimentar, p
 
 ## Condiciones de la entrega
 
-1. _Plazo máximo del último `commit`:_ *Por definir*.
-2. _Presentaciones (código + demo):_ *Por definir*; Tiempo: *Por definir*.
+* Plazo del último commit: Antes de la exposición del 26/7/21 en el horario de clase.
+* Tiempo exposición: 5m (3m presentación del reporte + 2m preguntas).
