@@ -23,4 +23,4 @@ empléelas de acuerdo al (o a los) lenguaje(s) con los que desee experimentar, p
 ## Condiciones de la entrega
 
 * Plazo del último commit: Antes de la exposición del 26/7/21 en el horario de clase.
-* Tiempo exposición: 5m (3m presentación del reporte + 2m preguntas).
+* Tiempo exposición: 5m (3m presentación: demo, código y conclusiones + 2m preguntas).
