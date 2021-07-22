@@ -1,8 +1,8 @@
-class Term extends Shape {
+/*class Term extends Shape {
   String _elements;
 
-  Term() {
-    this(3, 8);
+  Term() {      
+    this(3, 8);  //This(number of letters, size)
   }
 
   Term(String elements, float scaling) {
@@ -37,3 +37,4 @@ class Term extends Shape {
     }
   }
 }
+*/

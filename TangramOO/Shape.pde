@@ -11,12 +11,14 @@ abstract class Shape {
   float _scaling;
   PVector _position;
   color _hue;
+  //boolean _dimmer;
+  
 
   Shape() {
-    this(new PVector(random(0, width), random(0, height)),
-         random(0, TWO_PI),
-         random(0.5, 1.5),
-         color(random(0, 255), random(0, 255), random(0, 255)));
+    this(new PVector(random(0, width-200), random(0, height-200)),
+         0,
+         1,
+         color(random(0,255)));        
   }
 
   Shape(PVector position, float rotation, float scaling, color hue) {
@@ -24,6 +26,7 @@ abstract class Shape {
     setRotation(rotation);
     setScaling(scaling);
     setHue(hue);
+//    setDimmer(dimmer);
   }
 
   void draw() {
@@ -35,17 +38,16 @@ abstract class Shape {
     aspect();
     pop();
   }
-
   abstract void aspect();
 
-  /*
-  // Escoja uno solo de los siguientes dos prototipos para la funcion contains:
   boolean contains(int x, int y) {
     return true;
   }
   
+  /*
   abstract boolean contains(int x, int y);
   // */
+  
 
   float scaling() {
     return _scaling;
@@ -78,4 +80,13 @@ abstract class Shape {
   void setHue(color hue) {
     _hue = hue;
   }
+  
+ /* boolean dimmer(){
+    return _dimmer;
+  }
+  
+  void setDimmer(boolean dimmer){
+    _dimmer = dimmer;
+  }
+  */
 }
