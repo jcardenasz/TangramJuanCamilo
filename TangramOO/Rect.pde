@@ -1,3 +1,4 @@
+// The Rect class allows the creation of square objects
 class Rect extends Shape {
   float _edge;
 

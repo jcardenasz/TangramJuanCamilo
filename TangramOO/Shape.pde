@@ -11,14 +11,13 @@ abstract class Shape {
   float _scaling;
   PVector _position;
   color _hue;
-  //boolean _dimmer;
-  
+  boolean _dimmer;
 
   Shape() {
-    this(new PVector(random(0, width-200), random(0, height-200)),
-         0,
+    this(new PVector(width/2,height/2),
+         2*PI,
          1,
-         color(random(0,255)));        
+         color(random(0,255)));
   }
 
   Shape(PVector position, float rotation, float scaling, color hue) {
@@ -26,7 +25,7 @@ abstract class Shape {
     setRotation(rotation);
     setScaling(scaling);
     setHue(hue);
-//    setDimmer(dimmer);
+    setDimmer(false);
   }
 
   void draw() {
@@ -38,10 +37,20 @@ abstract class Shape {
     aspect();
     pop();
   }
+  //The abstract function aspect is encharged of showing each figure
   abstract void aspect();
 
-  boolean contains(int x, int y) {
-    return true;
+  boolean contains(int x, int y, Shape shape) {
+    int varX; int varY;
+    boolean ok = false;
+    if(mousePressed && mouseButton==LEFT){
+      varX = x; varY = y;
+      color mouseColor=get(varX,varY);
+      if(mouseColor==shape.hue()){
+         return true;
+      }else return false;
+    }if (ok==true){ return true;}
+    else return false;
   }
   
   /*
@@ -81,12 +90,11 @@ abstract class Shape {
     _hue = hue;
   }
   
- /* boolean dimmer(){
+  boolean dimmer(){
     return _dimmer;
   }
   
-  void setDimmer(boolean dimmer){
-    _dimmer = dimmer;
+  void setDimmer(boolean a){
+    _dimmer = a;
   }
-  */
 }

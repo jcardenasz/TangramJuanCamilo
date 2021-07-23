@@ -1,6 +1,7 @@
+// The Parallelogram class allows the creation of parallelogram objects
 class Parallelogram extends Shape{
   float _edge, _distance;
-  boolean _switch=false;
+  boolean _reflect=false;
   
    Parallelogram(){
      this(50*sqrt(2)/2,25*sqrt(2));
@@ -10,20 +11,19 @@ class Parallelogram extends Shape{
    Parallelogram(float edge, float distance){
      setEdge(edge);
      setDistance(distance);
+     setReflect(false);
    }
-
- /* void aspect(){
-    if((keyPressed) && (key=='m'||key=='M') && (_switch==false)){_switch=true;}
-    if((keyPressed) && (key=='m'||key=='M') && (_switch==true)) {_switch=false;}
-    if(_switch==false){
-       quad(-edge()-2*distance(),-distance(),edge(),-distance(),edge()+2*distance(),distance(),-edge(),distance());
-    }else quad(-edge(),-distance(),edge()+2*distance(),-distance(),edge(),distance(),-edge()-2*distance(),distance());
-  }*/
   
   void aspect() {
-    if(keyPressed && (key=='m' || key=='M')){
+    if(_reflect==false){
         quad(-edge(),-distance(),edge()+2*distance(),-distance(),edge(),distance(),-edge()-2*distance(),distance());
-    }else  quad(-edge()-2*distance(),-distance(),edge(),-distance(),edge()+2*distance(),distance(),-edge(),distance());
+      }else quad(-edge()-2*distance(),-distance(),edge(),-distance(),edge()+2*distance(),distance(),-edge(),distance()); 
+    if (keyPressed && (key=='m' || key=='M')){
+      delay(10);
+      if(reflect()==false){
+         setReflect(true);
+      }else setReflect(false);
+    }
   }  
  
   public float edge() {
@@ -39,5 +39,12 @@ class Parallelogram extends Shape{
   public void setDistance(float distance) {
     _distance = distance;
   }
-    
+  boolean reflect(){
+    return _reflect;
+  }
+  
+  public void setReflect(boolean a){
+    _reflect = a;
+  }
+  
 }
