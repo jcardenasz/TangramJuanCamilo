@@ -13,11 +13,12 @@ int blackpixels = 0;        // Black pixels quantity for verification
 Table levels;               // A csv file with piece data
 boolean nextstage = false;  // Indicates if a level is completed
 int linenumber=0;           // Useful to draw the black figures
-PImage cover, keys,savingimage,returnimage; // Images in the tangram
+PImage cover, keys,savingimage,returnimage, figuremovement; // Images in the tangram
 
 void setup() {
   frameRate(60);
   size(1200,700);
+  figuremovement = loadImage("figureMovement.png");
   cover = loadImage("TangramCover.png");
   keys = loadImage("KeyBindings.png");
   savingimage = loadImage("saving.png");
@@ -45,6 +46,74 @@ void setup() {
   pixelNumberSetting();
 }
 
+void draw(){
+  background(255, 255, 255);
+  //Creation of the grid
+  if (drawGrid==true) drawGrid(10);
+  menu(mode);  //Everything works inside a menu
+  loadPixels();
+}
+
+//Menu function
+void menu(int a){
+  if(keyPressed){
+     if(key=='1') mode = 1;
+     if(key=='2') mode = 2;
+     if(key=='3') mode = 3;
+     if(key==BACKSPACE) mode = 0;
+  }
+  
+      if(a==0) image(cover,0,0,width,height);      //Initial image as cover with name of the game and gamemodes
+      
+      //Option 1
+      if(a==1){//free+creation 
+        image(figuremovement,0,0,width/3.5,height/4);
+        image(savingimage,0,0,width/4,height/4);   
+        image(returnimage,0,height-180);
+        int savecount=0;
+        
+        for (Shape shape : shapes){                //Drawing, positioning and rotation of figures
+          shape.draw();
+          figureUsage(currentMouseColor(),shape);
+          figureMovement(shape);
+          figureRotation(shape);
+          
+          if(keyPressed && key==ENTER && savecount<7){  //  If enter is used in free gamemode, the position
+            delay(100);                                 //   and rotation of the fiures is saved in "levels.csv"
+            savecount++;
+            TableRow row = levels.addRow();
+            row.setInt("positionx",xFromPosition(shape));
+            row.setInt("positiony",yFromPosition(shape));
+            row.setFloat("rotationv",shape.rotation());
+            saveTable(levels,"levels.csv");print(" File saved! -");
+          }
+        }
+        if(savecount>=7)savecount=0;
+      }
+      
+      //Option 2
+      if(a==2){ //levels gamemode
+        image(figuremovement,0,0,width/3.5,height/4);
+        image(returnimage,0,height-180);
+        for (Shape shadow : shadows){
+          shadow.draw();                        // In this mode, black figures in different positions and
+        }                                       // must be covered with moving figures to complete the level
+        for (Shape shape : shapes){
+          shape.draw();
+          figureUsage(currentMouseColor(),shape);
+          figureMovement(shape);
+          figureRotation(shape);
+          levelReader(linenumber);                      
+          }
+        verification(blackpixels, nextstage);
+      }
+      
+      //Option 3
+      if(a==3){
+        image(keys,0,0,width,height);       //This image displays key bindings to play the game
+      }
+}
+
 //With this function a Grid can be created
 void drawGrid(float scale) {
   push();
@@ -61,6 +130,7 @@ void drawGrid(float scale) {
   pop();
 }
 
+//--- MOVEMENT AND ROTATION ---
 
 // This function gets the color of the pixel under the mouse
 color currentMouseColor(){
@@ -137,82 +207,6 @@ void keyPressed() {
     drawGrid = !drawGrid;
 }
 
-
-void draw(){
-  background(255, 255, 255);
-  //Creation of the grid
-  if (drawGrid==true) drawGrid(10);
-  menu(mode);  //Everything works inside a menu
-  loadPixels();
-}
-
-//Menu function
-void menu(int a){
-  if(keyPressed){
-     if(key=='1') mode = 1;
-     if(key=='2') mode = 2;
-     if(key=='3') mode = 3;
-     if(key==BACKSPACE) mode = 0;
-  }
-  
-      if(a==0) image(cover,0,0,width,height);      //Initial image as cover with name of the game and gamemodes
-      
-      //Option 1
-      if(a==1){//free+creation                                  
-        image(savingimage,0,0,width/4,height/4);   
-        image(returnimage,0,height-180);
-        int savecount=0;
-        
-        for (Shape shape : shapes){                //Drawing, positioning and rotation of figures
-          shape.draw();
-          figureUsage(currentMouseColor(),shape);
-          figureMovement(shape);
-          figureRotation(shape);
-          
-          if(keyPressed && key==ENTER && savecount<7){  //  If enter is used in free gamemode, the position
-            delay(100);                                 //   and rotation of the fiures is saved in "levels.csv"
-            savecount++;
-            TableRow row = levels.addRow();
-            row.setInt("positionx",xFromPosition(shape));
-            row.setInt("positiony",yFromPosition(shape));
-            row.setFloat("rotationv",shape.rotation());
-            saveTable(levels,"levels.csv");print(" File saved! -");
-          }
-        }
-        if(savecount>=7)savecount=0;
-      }
-      
-      //Option 2
-      if(a==2){ //levels gamemode
-        image(returnimage,0,height-180);
-        for (Shape shadow : shadows){
-          shadow.draw();                        // In this mode, black figures in different positions and
-        }                                       // must be covered with moving figures to complete the level
-        for (Shape shape : shapes){
-          shape.draw();
-          figureUsage(currentMouseColor(),shape);
-          figureMovement(shape);
-          figureRotation(shape);
-          levelReader(linenumber);                      
-          }
-        verification(blackpixels, nextstage);
-      }
-      
-      //Option 3
-      if(a==3){
-        image(keys,0,0,width,height);       //This image displays key bindings to play the game
-      }
-}
-
-//This function was used to know the position(x,y) of the mouse
-/*void mousePos(){
-  if(mousePressed){
-    int x=mouseX;
-    int y=mouseY;
-    print(x+", "+y);    
-  }
-}*/
-
 //This function is useful for counting the number of pixels in a shape
 int figurePixelCounter(Shape a){
   loadPixels();
@@ -241,7 +235,7 @@ void verification(int blackpixels, boolean next){
       blackpixels++;}
    }
   
-  if (blackpixels<2000){next=true;}  //If the black pixels of the screen is 
+  if (blackpixels<3000){next=true;}  //If the black pixels of the screen is 
     blackpixels=0;                   //minor to 2000 it means the level is finished.
 
   if(next==true ){  
