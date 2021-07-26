@@ -2,7 +2,7 @@
 class Triangle extends Shape{
   float _distance;
   
-  //In this constructor, Triangle distance = 100/sqrt(8)
+  //In this constructor, Triangle side = 100/sqrt(8)
   //Triangle default color will be black
   Triangle(){
     this(100/sqrt(8));

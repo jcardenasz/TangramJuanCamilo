@@ -14,8 +14,8 @@ class Parallelogram extends Shape{
      setReflect(false);
    }
   
-  //In this method there are 2 different parallelograms, one is the reflection of the other one
-  //They are shown if the user presses the key 'm'
+  // In this method there are 2 different parallelograms, one is the reflection of the other one.
+  // They are shown if the user presses the key 'm'
   void aspect() {
     if(_reflect==false){
         quad(-edge(),-distance(),edge()+2*distance(),-distance(),edge(),distance(),-edge()-2*distance(),distance());

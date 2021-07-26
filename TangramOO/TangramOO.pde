@@ -7,14 +7,13 @@
 Shape[] shapes;
 Shape[] shadows;
 boolean drawGrid = true;
-color mousecolor; //Useful for moving the figures
-int mode = 0;
-int blackpixels = 0;
-Table levels;
-boolean nextstage = false;
-int level=0;
-PImage cover, keys,savingimage,returnimage;
-
+color mousecolor;           // Color under the mouse
+int mode = 0;               // Game mode
+int blackpixels = 0;        // Black pixels quantity for verification
+Table levels;               // A csv file with piece data
+boolean nextstage = false;  // Indicates if a level is completed
+int linenumber=0;           // Useful to draw the black figures
+PImage cover, keys,savingimage,returnimage; // Images in the tangram
 
 void setup() {
   frameRate(60);
@@ -24,22 +23,22 @@ void setup() {
   savingimage = loadImage("saving.png");
   returnimage = loadImage("numbers.png"); 
   levels = loadTable("levels.csv","header"); 
-  //There is the creation of an array which contains 7 figures
+  
+  // Here are created two arrays of shapes with 7 figures each
   shapes= new Shape[7];
   shadows= new Shape[7];
   for(int i=0; i<shapes.length; i++){                     
-    if(i<=4) shapes[i] = new Triangle(); //i<4 because there are 4 Triangles, which come from the same class (Triangle)
-  }shapes[5]=new Rect();  shapes[6]=new Parallelogram(); //Then the specific square and parallelogram objects
+    if(i<=4) shapes[i] = new Triangle();                  //i<4 because there are 4 Triangles, which come from the same class (Triangle)
+  }shapes[5]=new Rect();  shapes[6]=new Parallelogram();  //Then the specific square and parallelogram objects
   
   for(int i=0; i<shadows.length; i++){                     
-    if(i<=4) shadows[i] = new Triangle(); //i<4 because there are 4 Triangles, which come from the same class (Triangle)
+    if(i<=4) shadows[i] = new Triangle();                 
   }shadows[5]=new Rect();  shadows[6]=new Parallelogram();
   
-  
-  for(int i=0; i<shapes.length; i++){   //Clones from shapes are created and painted black
+  for(int i=0; i<shapes.length; i++){   //Shadow figures are painted black
     shadows[i].setHue(#000000);
   }
-  initialFrame(shapes);
+  initialFrame(shapes);                 
   figureScaling(shapes);
   figureScaling(shadows);
   figureColor(shapes); 
@@ -65,11 +64,8 @@ void drawGrid(float scale) {
 void draw(){
   background(255, 255, 255);
   //Creation of the grid
-  if (drawGrid==true)
-    drawGrid(10);
-  /* With this for cycle, every figure is shown, 
-     after that the movement functions are invoked */
-  menu(mode);
+  if (drawGrid==true) drawGrid(10);
+  menu(mode);  //Everything works inside a menu
   loadPixels();
 }
 
@@ -78,12 +74,12 @@ color currentMouseColor(){
   return get(mouseX,mouseY);
 }
 
-//This function tells if a figure is selected
+// This function tells if a figure is selected
 void figureUsage(color a,Shape shape){
   mouseReleased(a, shape);
 } 
 
-//This function switch the boolean to activate te selected function
+// This function switch the boolean to tell which figure is being selected
 void mouseReleased(color a, Shape shape){
   if(mouseButton==LEFT && a==shape.hue()){
     delay(40);
@@ -103,59 +99,59 @@ void figureMovement(Shape a){
 
 /* This function allows the selected figure to rotate
    left with 'e' and right with 'r' */
-   
 void figureRotation(Shape a){
   if(a.dimmer()==true){ 
     if(keyPressed){
-      rotateRight(a);
-      rotateLeft(a);
-      keyReleased(a);
+      rotateRight(a);       // Delay() is used to prevent a massive
+      rotateLeft(a);        // spin if the key is not released 
     }
   }
   figureUsage(currentMouseColor(),a);
 }
-    
+
+//Small and big right spins
 void rotateRight(Shape a){
   if(key=='r'||key=='R'){
     if(a.scaling()<2){
       a._rotation+=0.05;
     }else a._rotation+=0.01;
-  }delay(30);                  // Delay() is used to prevent a massive 
-}                              // spin if the key is not released 
+  }delay(30);   
+  
+  if(key=='w' || key=='W'){
+    a._rotation+=PI/4;
+    delay(50);
+  }
+                                
+}                              
 
+//Small and big left spins
 void rotateLeft(Shape a){
   if(key=='e'||key=='E'){
     if(a.scaling()<2){
       a._rotation-=0.05;
     }else a._rotation-=0.01;
   }delay(30);
-}
-
-void keyReleased(Shape a){
+  
   if(key=='q' || key=='Q'){
     a._rotation-=PI/4;
     delay(50);
   }
-  
-  if(key=='w' || key=='W'){
-    a._rotation+=PI/4;
-    delay(50);
-  }
 }
 
-//With te 'g' key you can erase the grid
+//With te 'g' key you can erase or draw the grid
 void keyPressed() {
   if (key == 'g' || key == 'G')
     drawGrid = !drawGrid;
 }
 
-void mousePos(){
+//This function was used to know the position(x,y) of the mouse
+/*void mousePos(){
   if(mousePressed){
     int x=mouseX;
     int y=mouseY;
     print(x+", "+y);    
   }
-}
+}*/
 
 //This function is useful for counting the number of pixels in a shape
 int figurePixelCounter(Shape a){
@@ -169,7 +165,7 @@ int figurePixelCounter(Shape a){
   return aux;
 }
 
-//This functions changes the value pixelnumber of every shape using the number of pixels of the figure
+//This functions places the value quantity of every figure
 void pixelNumberSetting(){
   for(int i=0; i<shapes.length; i++){
     shapes[i].setPixelNumber(figurePixelCounter(shapes[i]));
@@ -184,29 +180,17 @@ void verification(int blackpixels, boolean next){
       blackpixels++;}
    }
   
-  if (blackpixels<2000){next=true;}
-    blackpixels=0;
+  if (blackpixels<2000){next=true;}  //If the black pixels of the screen is 
+    blackpixels=0;                   //minor to 2000 it means the level is finished.
 
   if(next==true ){  
-      level+=7;
-      initialFrame(shapes);
+      linenumber+=7;                 
+      initialFrame(shapes);          //Each time a level is finished the figures get back to original position
       nextstage=false;
       delay(50);
-      print(next);
   }
 }
-  
-
-
-/*void figuresBlackBorder(){
-  loadPixels();
-  for(int i=0; i<pixels.length; i++){
-     if(pixels[i]==#000000){
-       blackpixels++;}
-   }print(blackpixels,". ");
-  blackPixels=0;
-}*/
-
+ 
 //Menu function
 void menu(int a){
   if(keyPressed){
@@ -216,20 +200,21 @@ void menu(int a){
      if(key==BACKSPACE) mode = 0;
   }
   
-      if(a==0) image(cover,0,0,width,height);
-        
-      if(a==1){ //free+creation
-        image(savingimage,0,0,width/4,height/4);
+      if(a==0) image(cover,0,0,width,height);      //Initial image as cover with name of the game and gamemodes
+      
+      if(a==1){//free+creation                                  
+        image(savingimage,0,0,width/4,height/4);   
         image(returnimage,0,height-180);
         int savecount=0;
-        for (Shape shape : shapes){
+        
+        for (Shape shape : shapes){                //Drawing, positioning and rotation of figures
           shape.draw();
           figureUsage(currentMouseColor(),shape);
           figureMovement(shape);
           figureRotation(shape);
           
-          if(keyPressed && key==ENTER && savecount<7){
-            delay(100);
+          if(keyPressed && key==ENTER && savecount<7){  //  If enter is used in free gamemode, the position
+            delay(100);                                 //   and rotation of the fiures is saved in "levels.csv"
             savecount++;
             TableRow row = levels.addRow();
             row.setInt("positionx",xFromPosition(shape));
@@ -240,26 +225,28 @@ void menu(int a){
         }
         if(savecount>=7)savecount=0;
       }
-      if(a==2){ //levels
+      
+      if(a==2){ //levels gamemode
         image(returnimage,0,height-180);
         for (Shape shadow : shadows){
-          shadow.draw();
-        }
+          shadow.draw();                        // In this mode, black figures in different positions and
+        }                                       // must be covered with moving figures to complete the level
         for (Shape shape : shapes){
           shape.draw();
           figureUsage(currentMouseColor(),shape);
           figureMovement(shape);
           figureRotation(shape);
-          levelReader(level);
+          levelReader(linenumber);                      
           }
         verification(blackpixels, nextstage);
       }
       if(a==3){
-      image(keys,0,0,width,height);
+      image(keys,0,0,width,height);       //This image displays key bindings to play the game
       }
         }
         
-
+/* This function reads every row of the table "levels.csv" taking a position(x,y) 
+   and rotation and is setted on every shadow to know what to cover */
 void levelReader(int level){
   if(level<levels.getRowCount()){
     int shadowarrayposition=0;
@@ -275,6 +262,8 @@ void levelReader(int level){
   }
 }
 
+/*  These two functions take the x and y 
+    characteristic from de Pvector position */
 int xFromPosition(Shape a){
     return int((a.position()).x);
   }
@@ -282,6 +271,7 @@ int yFromPosition(Shape a){
     return int((a.position()).y);
   }
   
+//This figures set colors, initial postions and size of the shapes
 void figureColor(Shape[] a){
   a[0].setHue(-695264);    //orange: #F56420
   a[1].setHue(-11819696);  //green: #4BA550
