@@ -61,13 +61,6 @@ void drawGrid(float scale) {
   pop();
 }
 
-void draw(){
-  background(255, 255, 255);
-  //Creation of the grid
-  if (drawGrid==true) drawGrid(10);
-  menu(mode);  //Everything works inside a menu
-  loadPixels();
-}
 
 // This function gets the color of the pixel under the mouse
 color currentMouseColor(){
@@ -144,53 +137,15 @@ void keyPressed() {
     drawGrid = !drawGrid;
 }
 
-//This function was used to know the position(x,y) of the mouse
-/*void mousePos(){
-  if(mousePressed){
-    int x=mouseX;
-    int y=mouseY;
-    print(x+", "+y);    
-  }
-}*/
 
-//This function is useful for counting the number of pixels in a shape
-int figurePixelCounter(Shape a){
+void draw(){
+  background(255, 255, 255);
+  //Creation of the grid
+  if (drawGrid==true) drawGrid(10);
+  menu(mode);  //Everything works inside a menu
   loadPixels();
-  int aux=0;
-  for(int i=0; i<pixels.length; i++){
-    if(pixels[i]==a.hue()){
-      aux++;
-    }
-  }
-  return aux;
 }
 
-//This functions places the value quantity of every figure
-void pixelNumberSetting(){
-  for(int i=0; i<shapes.length; i++){
-    shapes[i].setPixelNumber(figurePixelCounter(shapes[i]));
-    background(255,255,255);
-  }
-}
-
-void verification(int blackpixels, boolean next){
-  loadPixels();
-  for(int i=0; i<pixels.length; i++){
-    if(pixels[i]==#000000){
-      blackpixels++;}
-   }
-  
-  if (blackpixels<2000){next=true;}  //If the black pixels of the screen is 
-    blackpixels=0;                   //minor to 2000 it means the level is finished.
-
-  if(next==true ){  
-      linenumber+=7;                 
-      initialFrame(shapes);          //Each time a level is finished the figures get back to original position
-      nextstage=false;
-      delay(50);
-  }
-}
- 
 //Menu function
 void menu(int a){
   if(keyPressed){
@@ -247,6 +202,54 @@ void menu(int a){
       if(a==3){
         image(keys,0,0,width,height);       //This image displays key bindings to play the game
       }
+}
+
+//This function was used to know the position(x,y) of the mouse
+/*void mousePos(){
+  if(mousePressed){
+    int x=mouseX;
+    int y=mouseY;
+    print(x+", "+y);    
+  }
+}*/
+
+//This function is useful for counting the number of pixels in a shape
+int figurePixelCounter(Shape a){
+  loadPixels();
+  int aux=0;
+  for(int i=0; i<pixels.length; i++){
+    if(pixels[i]==a.hue()){
+      aux++;
+    }
+  }
+  return aux;
+}
+
+//This functions places the value quantity of every figure
+void pixelNumberSetting(){
+  for(int i=0; i<shapes.length; i++){
+    shapes[i].setPixelNumber(figurePixelCounter(shapes[i]));
+    background(255,255,255);
+  }
+}
+
+//Used to know when a level is accomplished
+void verification(int blackpixels, boolean next){
+  loadPixels();
+  for(int i=0; i<pixels.length; i++){
+    if(pixels[i]==#000000){
+      blackpixels++;}
+   }
+  
+  if (blackpixels<2000){next=true;}  //If the black pixels of the screen is 
+    blackpixels=0;                   //minor to 2000 it means the level is finished.
+
+  if(next==true ){  
+      linenumber+=7;                 
+      initialFrame(shapes);          //Each time a level is finished the figures get back to original position
+      nextstage=false;
+      delay(50);
+  }
 }
         
 /* This function reads every row of the table "levels.csv" taking a position(x,y) 
