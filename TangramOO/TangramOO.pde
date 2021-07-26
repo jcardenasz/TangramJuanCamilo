@@ -202,6 +202,7 @@ void menu(int a){
   
       if(a==0) image(cover,0,0,width,height);      //Initial image as cover with name of the game and gamemodes
       
+      //Option 1
       if(a==1){//free+creation                                  
         image(savingimage,0,0,width/4,height/4);   
         image(returnimage,0,height-180);
@@ -226,6 +227,7 @@ void menu(int a){
         if(savecount>=7)savecount=0;
       }
       
+      //Option 2
       if(a==2){ //levels gamemode
         image(returnimage,0,height-180);
         for (Shape shadow : shadows){
@@ -240,10 +242,12 @@ void menu(int a){
           }
         verification(blackpixels, nextstage);
       }
+      
+      //Option 3
       if(a==3){
-      image(keys,0,0,width,height);       //This image displays key bindings to play the game
+        image(keys,0,0,width,height);       //This image displays key bindings to play the game
       }
-        }
+}
         
 /* This function reads every row of the table "levels.csv" taking a position(x,y) 
    and rotation and is setted on every shadow to know what to cover */
