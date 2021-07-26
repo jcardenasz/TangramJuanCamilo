@@ -14,18 +14,21 @@ class Parallelogram extends Shape{
      setReflect(false);
    }
   
+  //In this method there are 2 different parallelograms, one is the reflection of the other one
+  //They are shown if the user presses the key 'm'
   void aspect() {
     if(_reflect==false){
         quad(-edge(),-distance(),edge()+2*distance(),-distance(),edge(),distance(),-edge()-2*distance(),distance());
-      }else quad(-edge()-2*distance(),-distance(),edge(),-distance(),edge()+2*distance(),distance(),-edge(),distance()); 
+    }else quad(-edge()-2*distance(),-distance(),edge(),-distance(),edge()+2*distance(),distance(),-edge(),distance()); 
     if (keyPressed && (key=='m' || key=='M')){
-      delay(10);
+      delay(50);
       if(reflect()==false){
          setReflect(true);
       }else setReflect(false);
     }
   }  
- 
+  
+  //Setters and Getters 
   public float edge() {
     return _edge;
   }
@@ -43,8 +46,8 @@ class Parallelogram extends Shape{
     return _reflect;
   }
   
-  public void setReflect(boolean a){
-    _reflect = a;
+  public void setReflect(boolean reflect){
+    _reflect = reflect;
   }
   
 }

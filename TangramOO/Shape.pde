@@ -12,20 +12,23 @@ abstract class Shape {
   PVector _position;
   color _hue;
   boolean _dimmer;
+  int _pixelnumber;
 
   Shape() {
-    this(new PVector(width/2,height/2),
-         2*PI,
+    this(new PVector(random(100,width-400),random(100,height-100)),
+         0,
          1,
-         color(random(0,255)));
+         color(random(0,255)),
+         1);
   }
-
-  Shape(PVector position, float rotation, float scaling, color hue) {
+  
+  Shape(PVector position, float rotation, float scaling, color hue, int pixelnumber) {
     setPosition(position);
     setRotation(rotation);
     setScaling(scaling);
     setHue(hue);
     setDimmer(false);
+    setPixelNumber(pixelnumber);
   }
 
   void draw() {
@@ -34,10 +37,11 @@ abstract class Shape {
     translate(position().x, position().y);
     rotate(rotation());
     scale(scaling(), scaling());
+    noStroke();
     aspect();
     pop();
   }
-  //The abstract function aspect is encharged of showing each figure
+  //The abstract method aspect is encharged of showing each figure
   abstract void aspect();
 
   boolean contains(int x, int y, Shape shape) {
@@ -57,7 +61,7 @@ abstract class Shape {
   abstract boolean contains(int x, int y);
   // */
   
-
+  //Theese are setters and getters of every atribute in Shape class
   float scaling() {
     return _scaling;
   }
@@ -97,4 +101,13 @@ abstract class Shape {
   void setDimmer(boolean a){
     _dimmer = a;
   }
+  
+  int pixelNumber(){
+    return _pixelnumber;
+  }
+  
+  void setPixelNumber(int pixelnumber){
+    _pixelnumber = pixelnumber;
+  }
+  
 }

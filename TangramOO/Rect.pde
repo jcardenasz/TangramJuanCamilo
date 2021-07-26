@@ -15,7 +15,8 @@ class Rect extends Shape {
     rectMode(CENTER);
     rect(0, 0, edge(), edge());
   }
-
+  
+  //Setters and Getters
   public float edge() {
     return _edge;
   }

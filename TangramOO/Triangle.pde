@@ -13,16 +13,18 @@ class Triangle extends Shape{
     setDistance(distance);
  }
   
-  //The abstract function aspect is encharged of showing the triangle
+  //The abstract method aspect is encharged of showing the triangle
   @Override
   void aspect() {
     triangle(0,-distance(),2*distance(),distance(),-2*distance(),distance());
   }
     
+  //Setters and Getters
   public float distance(){
     return _distance;
   }
   public void setDistance(float distance) {
     _distance = distance;
   }
+  
 }
